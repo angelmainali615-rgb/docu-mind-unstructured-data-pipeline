@@ -1,13 +1,13 @@
-#Counter is a special dictionary for counting how many times each item appears.
 from collections import Counter
-def extract_keywords(text,top_n=10):
-    words=text.lower().split()
+
+def extract_keywords(text, top_n=10):
+    """
+    Extract top keywords from text (excluding stopwords)
+    """
+    stopwords = {"the","is","on","in","at","and","to","of","for","with","by"}
     
-    stopwords={"the","is","on","in","at","and","to","of","for","with","by"}
+    # Split text into words, lowercase and filter stopwords
+    words = [w for w in text.lower().split() if w not in stopwords and len(w) > 2]
     
-    filtered_words=[
-        word for word in words if word  not in stopwords and len(word)>2
-    ]
-    word_counts=Counter(filtered_words)
-    
-    return word_counts.most_common(top_n)
+    # Count frequency and return top_n keywords
+    return Counter(words).most_common(top_n)

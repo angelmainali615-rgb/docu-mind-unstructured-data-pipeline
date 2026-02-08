@@ -1,6 +1,7 @@
 fastapi
 uvicorn
-python-multipart
-pypdf
+PyMuPDF
 pdf2image
 pytesseract
+spacy
+sqlite3
